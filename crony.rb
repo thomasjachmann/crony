@@ -1,13 +1,11 @@
-require "rufus/scheduler"
+$:.unshift File.expand_path("..", __FILE__)
 
-require "uri"
-require "net/http"
+require "rufus/scheduler"
 
 scheduler = Rufus::Scheduler.start_new
 
-scheduler.every "2s" do
-  url = "http://staging.kickateure.de/"
-  Net::HTTP.get_response(URI.parse(url).host, URI.parse(url).path)
+Dir[File.expand_path "../cron.d/*", __FILE__].each do |cron|
+  scheduler.instance_eval IO.read(cron)
 end
 
 scheduler.join
