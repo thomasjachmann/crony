@@ -1,11 +1,13 @@
 require "rufus/scheduler"
 
+require "uri"
+require "net/http"
+
 scheduler = Rufus::Scheduler.start_new
 
 scheduler.every "2s" do
-  puts "done waiting... ok, I'll wait another two seconds"
+  url = "http://staging.kickateure.de/"
+  Net::HTTP.get_response(URI.parse(url).host, URI.parse(url).path)
 end
-
-puts "crony started"
 
 scheduler.join
