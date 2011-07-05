@@ -35,6 +35,8 @@ end
 
 Within your `cron.d` files, you can do anything. Requiring other files/gems (remember to put them into your `Gemfile` first), defining classes/methods etc.
 
+You can have as many jobs as you wish within one file. Separating them in several files is just a way to organize and group your jobs for better overview.
+
 
 Helpers
 -------
