@@ -1,7 +1,7 @@
 CRONY
 =====
 
-Crony is a template project to implement a crontab like scheduler. [rufus-scheduler](https://github.com/jmettraux/rufus-scheduler) is used for scheduling and [foreman](https://github.com/ddollar/foreman) is used for running the scheduler. This makes it perfect for a deployment on [heroku](http://heroku.com)'s [Caledon Cedar](http://devcenter.heroku.com/articles/cedar) stack.
+Crony is a template project to implement a cron like scheduler. [rufus-scheduler](https://github.com/jmettraux/rufus-scheduler) is used for scheduling and [foreman](https://github.com/ddollar/foreman) is used for running the scheduler. This makes it perfect for a deployment on [heroku](http://heroku.com)'s [Caledon Cedar](http://devcenter.heroku.com/articles/cedar) stack.
 
 
 Usage
@@ -72,6 +72,21 @@ heroku ps:scale worker=1
 ```
 
 After this, your private crony instance will happily be running and executing your jobs.
+
+If you want to pause the scheduler, just scale your worker down to 0:
+
+```bash
+heroku ps:scale worker=0
+```
+
+To restart, scale it back up to 1 again.
+
+
+Future Ideas
+------------
+
+* Implement database backed (instead of file based) job configuration that would allow for management of jobs via the command line (eg rake tasks) without the need to redeploy the app.
+* Integrate a web view - currently, accessing the URL of your app will result in an error since the only process won't serve HTTP requests.
 
 
 Contributing
