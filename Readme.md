@@ -94,6 +94,8 @@ Contributing
 
 If you want to contribute changes you've made, helper scripts or anything else, please fork this project and send a pull request with your changes.
 
+Preferably, you keep the master branch in your fork clean and create another branch to add your own jobs and push that to heroku. This way, you can keep the master branch clean from personal files and make those pull requests easier for both of us. Just rebase your personal branch on top of master and use `-f` when pushing to heroku.
+
 
 License
 -------
