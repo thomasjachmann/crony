@@ -1,1 +1,1 @@
-worker: ruby crony.rb
+worker: bundle exec ruby crony.rb
