@@ -7,7 +7,7 @@ Crony is a template project to implement a crontab like scheduler. [rufus-schedu
 Usage
 -----
 
-Just fork/clone this repository, install the gems needed using bundler:
+Fork/clone this project, install the gems needed using bundler:
 
 ```bash
 bundle install
@@ -25,7 +25,7 @@ Your crony won't do much yet, so add some cron jobs now.
 Adding Cron Jobs
 ----------------
 
-Each (non hidden) file in the `cron.d` directory will be evaluated and can be used to schedule jobs. Refer to [rufus-scheduler](https://github.com/jmettraux/rufus-scheduler)'s documentation on how to schedule jobs. Just be aware that your `cron.d` files will be evaluated in the context of the scheduler instance, so you can access all methods the scheduler has. Here's an example:
+Each (non hidden) file in the `cron.d` directory will be evaluated and can be used to schedule jobs. Refer to [rufus-scheduler](https://github.com/jmettraux/rufus-scheduler)'s documentation on how to schedule jobs. Be aware that your `cron.d` files will be evaluated in the context of the scheduler instance, so you can access all methods the scheduler has. Here's an example:
 
 ```ruby
 every "5m" do
@@ -33,13 +33,13 @@ every "5m" do
 end
 ```
 
-Within your `cron.d` files, you can do anything. Requiring other files/gems (just remember to put them into your `Gemfile` first), defining classes/methods etc.
+Within your `cron.d` files, you can do anything. Requiring other files/gems (remember to put them into your `Gemfile` first), defining classes/methods etc.
 
 
 Helpers
 -------
 
-There's a helper for pinging sites (eg to start some tasks or just to keep them alive when the hoster shuts them down after a certain time of inactivity) within the `lib` directory. This directory is in the load path, so you can just require the files in here and use them within your `cron.d` files. Feel free to add helpers of your own.
+There's a helper for pinging sites (eg to start some tasks or to keep them alive when the hoster shuts them down after a certain time of inactivity) within the `lib` directory. This directory is in the load path, so you can require the files in here and use them within your `cron.d` files. Feel free to add helpers of your own.
 
 ```ruby
 require "http_ping"
@@ -75,7 +75,7 @@ After this, your private crony instance will happily be running and executing yo
 Contributing
 ------------
 
-If you want to contribute changes you've made, helper scripts or anything else, please fork this repository and send a pull request with your changes.
+If you want to contribute changes you've made, helper scripts or anything else, please fork this project and send a pull request with your changes.
 
 
 License
