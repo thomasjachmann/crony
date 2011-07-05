@@ -33,23 +33,9 @@ every "5m" do
 end
 ```
 
-Within your `cron.d` files, you can do anything. Requiring other files/gems (remember to put them into your `Gemfile` first), defining classes/methods etc.
-
 You can have as many jobs as you wish within one file. Separating them in several files is just a way to organize and group your jobs for better overview.
 
-
-Helpers
--------
-
-There's a helper for pinging sites (eg to start some tasks or to keep them alive when the hoster shuts them down after a certain time of inactivity) within the `lib` directory. This directory is in the load path, so you can require the files in here and use them within your `cron.d` files. Feel free to add helpers of your own.
-
-```ruby
-require "http_ping"
-
-every "15m" do
-  HttpPing.ping "http://my.server/action/to/start"
-end
-```
+Within your `cron.d` files, you can do anything: Requiring other files/gems (remember to put them into your `Gemfile` first), defining classes/methods etc. This way, you can do anything from sending emails to pinging other sites of yours (eg using the fabulous [httpi](https://github.com/rubiii/httpi)) to start a task there or to keep them alive when the hoster shuts them down after a certain time of inactivity.
 
 
 Heroku Deployment
