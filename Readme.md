@@ -19,7 +19,7 @@ and start the scheduler using foreman:
 bundle exec foreman start
 ```
 
-Your crony won't do much for now, so add some cron jobs now.
+Your crony won't do much yet, so add some cron jobs now.
 
 
 Adding Cron Jobs
@@ -53,7 +53,7 @@ end
 Heroku Deployment
 -----------------
 
-When you added your jobs and helpers, you're ready to deploy your jobs to heroku:
+After you've added your jobs and helpers, you're ready to deploy your jobs to heroku:
 
 ```bash
 # create an application on the Caledon Cedar stack
@@ -65,7 +65,7 @@ heroku config:add BUNDLE_WITHOUT=development
 # deploy your code
 git push heroku master
 
-# scale your worker
+# scale your worker (one is well within heroku's limits for a free app)
 heroku ps:scale worker=1
 ```
 
@@ -75,7 +75,7 @@ After this, your private crony instance will happily be running and executing yo
 Contributing
 ------------
 
-If you want to contribute changes you made, helper scripts or anything else, please fork this repository and send a pull request with your changes.
+If you want to contribute changes you've made, helper scripts or anything else, please fork this repository and send a pull request with your changes.
 
 
 License
