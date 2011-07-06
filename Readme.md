@@ -67,6 +67,8 @@ heroku ps:scale worker=0
 
 To restart, scale it back up to 1 again.
 
+Be aware that heroku cycles your processes every 24h meaning that your crony instance will be restarted once daily. There shouldn't be any problems, though - unless this collides exactly with a job you've scheduled.
+
 
 Future Ideas
 ------------
