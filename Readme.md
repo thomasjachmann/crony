@@ -45,16 +45,13 @@ After you've added your jobs and helpers, you're ready to deploy your jobs to he
 
 ```bash
 # create an application on the Caledon Cedar stack
-heroku create --stack cedar
+heroku create
 
 # tell heroku not to install the gems you only need for your local development/testing
 heroku config:add BUNDLE_WITHOUT=development
 
 # deploy your code
 git push heroku master
-
-# scale your worker (one is well within heroku's limits for a free app)
-heroku ps:scale worker=1
 ```
 
 After this, your private crony instance will happily be running and executing your jobs.
@@ -62,7 +59,7 @@ After this, your private crony instance will happily be running and executing yo
 If you want to pause the scheduler, just scale your worker down to 0:
 
 ```bash
-heroku ps:scale worker=0
+heroku ps:scale web=0
 ```
 
 To restart, scale it back up to 1 again.
@@ -74,7 +71,6 @@ Future Ideas
 ------------
 
 * Implement database backed (instead of file based) job configuration that would allow for management of jobs via the command line (eg rake tasks) without the need to redeploy the app.
-* Integrate a web view - currently, accessing the URL of your app will result in an error since the only process won't serve HTTP requests.
 
 
 Contributing
