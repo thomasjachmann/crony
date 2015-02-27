@@ -9,7 +9,7 @@ server = Rack::Server.new(
 server_thread = Thread.new { server.start }
 
 # start scheduler in foreground
-scheduler = Rufus::Scheduler.start_new
+scheduler = Rufus::Scheduler.new
 Dir[File.expand_path "../cron.d/*", __FILE__].each do |cron|
   scheduler.instance_eval IO.read(cron)
 end
