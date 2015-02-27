@@ -8,4 +8,5 @@ gem "rack"
 group :development do
   gem "heroku"
   gem "foreman"
+  gem "pry-byebug"
 end
