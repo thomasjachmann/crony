@@ -1,6 +1,8 @@
 require "rack"
 require "rufus/scheduler"
 
+$stdout.sync = true
+
 # start http server in background thread
 server = Rack::Server.new(
   :config => File.expand_path("../config.ru", __FILE__),
